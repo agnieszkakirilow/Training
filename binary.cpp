@@ -3,6 +3,8 @@
 void setbit(unsigned int &number, unsigned int bitnumber);
 int getbit(unsigned int number, unsigned int bitnumber);
 void printbinary(unsigned int number);
+void clearbit(unsigned int &number, unsigned int bitnumber);
+void togglebit(unsigned int &number, unsigned int bitnumber);
 
 int main()
 {
@@ -18,7 +20,13 @@ int main()
   std::cout << std::endl;
   unsigned int mynumber = 17;
   printbinary(mynumber);
-  std::cout << std::endl;  
+  std::cout << std::endl;
+  clearbit(mynumber,4);
+  printbinary(mynumber);
+  std::cout << std::endl;
+  togglebit(mynumber,4);
+  printbinary(mynumber);
+  std::cout << std::endl;
 }
 
 void setbit(unsigned int &number, unsigned int bitnumber)
@@ -39,3 +47,12 @@ void printbinary(unsigned int number)
   }
 }
 
+void clearbit(unsigned int &number, unsigned int bitnumber)
+{
+    number &= ~( 1 << bitnumber);
+}
+
+void togglebit(unsigned int &number, unsigned int bitnumber)
+{
+    number ^= ( 1 << bitnumber );
+}
