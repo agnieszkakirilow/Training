@@ -7,6 +7,8 @@ void clearbit(unsigned int &number, unsigned int bitnumber);
 void togglebit(unsigned int &number, unsigned int bitnumber);
 int highestsetbit(unsigned int number);
 int lowestsetbit(unsigned int number);
+int leastsignificantbit(unsigned int number);
+int mostsignificantbit(unsigned int number);
 
 int main()
 {
@@ -31,6 +33,8 @@ int main()
   std::cout << std::endl;
   highestsetbit(15);
   lowestsetbit(0);
+  std::cout << leastsignificantbit(12) << std::endl;
+  std::cout << mostsignificantbit(15) << std::endl;
 }
 
 void setbit(unsigned int &number, unsigned int bitnumber)
@@ -90,4 +94,13 @@ int lowestsetbit(unsigned int number)
     bitset == -1 ? std::cout << "No bit is set\n": std::cout << bitset << " bit is the lowest bit set\n";
     return bitset;
     
+}
+
+int leastsignificantbit(unsigned int number)
+{
+    return (number&1);
+}
+int mostsignificantbit(unsigned int number)
+{
+    return ((number >> 31) & 1);
 }
