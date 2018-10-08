@@ -11,6 +11,8 @@ int leastsignificantbit(unsigned int number);
 int mostsignificantbit(unsigned int number);
 int counttrailingzeroes(unsigned int number);
 int countleadingzeroes(unsigned int number);
+void flipbits(unsigned int &number);
+void countzeroesandones(unsigned int number);
 
 int main()
 {
@@ -39,6 +41,10 @@ int main()
   std::cout << mostsignificantbit(13) << std::endl;
   std::cout << counttrailingzeroes(0) << std::endl;
   std::cout << countleadingzeroes(22) << std::endl;
+  std::cout << mynumber << std::endl;
+  flipbits(mynumber);
+  std::cout << mynumber << std::endl;
+  countzeroesandones(16);
 }
 
 void setbit(unsigned int &number, unsigned int bitnumber)
@@ -135,4 +141,27 @@ int countleadingzeroes(unsigned int number)
             count--;
     }
     return 31 - count;
+}
+
+void flipbits(unsigned int &number)
+{
+    number = ~number;   
+}
+
+void countzeroesandones(unsigned int number)
+{
+    int countones = 0;
+    int countzeroes = 0;
+    for(int i = 0; i < 32; i++)
+    {
+        if((number >> i) & 1)
+        {
+            countones++;
+        }
+        else
+        {
+            countzeroes++;
+        }
+    }
+    std::cout << "zeroes:" << countzeroes << " ones:" << countones << std::endl;
 }
