@@ -13,6 +13,10 @@ int counttrailingzeroes(unsigned int number);
 int countleadingzeroes(unsigned int number);
 void flipbits(unsigned int &number);
 void countzeroesandones(unsigned int number);
+int rotatenumberleft(int number, int rotations);
+int rotatenumberright(int number, int rotations);
+void swap(int &a, int &b);
+int isuneven(int num);
 
 int main()
 {
@@ -45,6 +49,12 @@ int main()
   flipbits(mynumber);
   std::cout << mynumber << std::endl;
   countzeroesandones(16);
+  std::cout << rotatenumberleft(-15,2) << std::endl;
+  std::cout << rotatenumberright(-15,2) << std::endl;
+  int a = -5,b = 17;
+  swap(a,b);
+  std::cout << a << "   " << b << "\n";
+  std::cout << isuneven(-6) << std::endl;
 }
 
 void setbit(unsigned int &number, unsigned int bitnumber)
@@ -164,4 +174,39 @@ void countzeroesandones(unsigned int number)
         }
     }
     std::cout << "zeroes:" << countzeroes << " ones:" << countones << std::endl;
+}
+
+int rotatenumberleft(int number, int rotations)
+{
+    int droppedbit = (number >> 31)&1;
+    while(rotations--)
+    {
+        number = (number << 1)|droppedbit;
+    }
+    return number;
+}
+
+int rotatenumberright(int number, int rotations)
+{
+    int droppedbit = number&1;
+    while(rotations--)
+    {
+        number = (number >> 1);
+        std::cout << number << " - NUMBER\n";
+        number |= (droppedbit << 31);
+        std::cout << number << " - NUMBER\n";
+    }
+    return number;
+}
+
+void swap(int &a, int &b)
+{
+    a ^=b;
+    b ^=a;
+    a ^=b;
+}
+
+int isuneven(int num)
+{
+    return (num&1);
 }
