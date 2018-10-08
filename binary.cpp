@@ -9,6 +9,8 @@ int highestsetbit(unsigned int number);
 int lowestsetbit(unsigned int number);
 int leastsignificantbit(unsigned int number);
 int mostsignificantbit(unsigned int number);
+int counttrailingzeroes(unsigned int number);
+int countleadingzeroes(unsigned int number);
 
 int main()
 {
@@ -33,8 +35,10 @@ int main()
   std::cout << std::endl;
   highestsetbit(15);
   lowestsetbit(0);
-  std::cout << leastsignificantbit(12) << std::endl;
-  std::cout << mostsignificantbit(15) << std::endl;
+  std::cout << leastsignificantbit(13) << std::endl;
+  std::cout << mostsignificantbit(13) << std::endl;
+  std::cout << counttrailingzeroes(0) << std::endl;
+  std::cout << countleadingzeroes(22) << std::endl;
 }
 
 void setbit(unsigned int &number, unsigned int bitnumber)
@@ -102,5 +106,33 @@ int leastsignificantbit(unsigned int number)
 }
 int mostsignificantbit(unsigned int number)
 {
-    return ((number >> 31) & 1);
+    return 1;
+}
+
+int counttrailingzeroes(unsigned int number)
+{
+    int count = 0;
+    if(number == 0)
+    {
+        return 0;
+    }
+    while(~(number >> count) & 1)
+    {
+            count++;
+    }
+    return count;
+}
+
+int countleadingzeroes(unsigned int number)
+{
+    int count = 32;
+    if(number == 0)
+    {
+        return 32;
+    }
+    while(~(number >> count) & 1)
+    {
+            count--;
+    }
+    return 31 - count;
 }
