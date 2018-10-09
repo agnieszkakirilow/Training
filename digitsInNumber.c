@@ -7,7 +7,7 @@ int lastDigit(int number);
 void swapFirstLast(int number);
 int sumOfDigits(int number);
 int reverseNumber(int number);
-bool isPalindrome(int number);
+int isPalindrome(int number);
 void digitFrequency(long long number);
 
 int main()
@@ -39,8 +39,8 @@ void swapFirstLast(int number)
 {
     int swappedNumber = 0;
     int lastDigit  = number % 10;
-    int digitsNumber = (int)log10(number); 
-    int firstDigit = (int)(number / pow(10, digitsNumber)); 
+    int digitsNumber = (int)log10(number);
+    int firstDigit = (int)(number / pow(10, digitsNumber));
     swappedNumber  = lastDigit;
     swappedNumber *= (int) pow(10, digitsNumber);
     swappedNumber += number % ((int) pow(10, digitsNumber));
@@ -70,10 +70,10 @@ int reverseNumber(int number)
         reversedNumber = reversedNumber*10 + digit;
         number/=10;
     }
-    return reversedNumber; 
+    return reversedNumber;
 }
 
-bool isPalindrome(int number)
+int isPalindrome(int number)
 {
     int reversedNumber = 0;
     int digit = 0;
@@ -84,7 +84,7 @@ bool isPalindrome(int number)
         reversedNumber = reversedNumber*10 + digit;
         modifiedNumber/=10;
     }
-    return reversedNumber==number; 
+    return reversedNumber==number;
 }
 
 void digitFrequency(long long number)
