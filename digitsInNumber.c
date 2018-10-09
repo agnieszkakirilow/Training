@@ -7,6 +7,8 @@ int lastDigit(int number);
 void swapFirstLast(int number);
 int sumOfDigits(int number);
 int reverseNumber(int number);
+bool isPalindrome(int number);
+void digitFrequency(long long number);
 
 int main()
 {
@@ -15,6 +17,8 @@ int main()
   swapFirstLast(345678);
   printf("%d\n", sumOfDigits(456789));
   printf("%d\n", reverseNumber(456789));
+  printf("%d\n", isPalindrome(125621));
+  digitFrequency(120003333546789);
 }
 
 int firstDigit(int number)
@@ -67,4 +71,34 @@ int reverseNumber(int number)
         number/=10;
     }
     return reversedNumber; 
+}
+
+bool isPalindrome(int number)
+{
+    int reversedNumber = 0;
+    int digit = 0;
+    int modifiedNumber = number;
+    while(modifiedNumber > 0)
+    {
+        digit = modifiedNumber%10;
+        reversedNumber = reversedNumber*10 + digit;
+        modifiedNumber/=10;
+    }
+    return reversedNumber==number; 
+}
+
+void digitFrequency(long long number)
+{
+    int digit = 0;
+    int mydigits[10] = { 0 };
+    while(number > 0)
+    {
+        digit = number%10;
+        mydigits[digit]++;
+        number/=10;
+    }
+    for(int i = 0; i < 10; i++)
+    {
+        printf("Number of %d is %d\n", i , mydigits[i]);
+    }
 }
