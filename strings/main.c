@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include "StringsPro.h"
+
+int main()
+{
+    char mystring[] = "Transform all lower to upper and up";
+    char mystring2[] = "ToGglLe StRiNg";
+    printf("mystring:");
+    printString(mystring);
+    lowerToUpper(mystring);
+    printf("mystring after lowerToUpper:");
+    printf("%s\n", mystring);
+    printf("mystring2:");
+    printString(mystring2);
+    toggleString(mystring2);
+    printf("mystring2 after toggleString:");
+    printf("%s\n", mystring2);
+    char mystring3[] = "My mother is 23 alien.";
+    printf("mystring3:");
+    printf("%s\n", mystring3);
+    countSigns(mystring3);
+    countVovels(mystring3);
+    countWords(mystring3);
+    reverseString(mystring3);
+    printf("mystring3 after reverse:%s\n", mystring3);
+    char mystring4[] = "kajak";
+    printf("mystring4:");
+    printf("%s\n", mystring4);
+    printf("mystring4 palindrome? : %d\n", isPalindrome(mystring4));
+    printf("mystring after reverse words:");
+    reverseWords(mystring);
+    printf("%s\n", mystring);
+    printf("Letter 'L' found in mystring under index: %d.\n", findFirstCharOccurrence(mystring,'L'));
+    printf("Letter 'P' in mystring found?: %d.\n", findLastCharOccurrence(mystring,'P'));
+    printf("Letter 'P' occurs in mystring %d times.\n", countCharOccurrence(mystring,'P'));
+    printf("All indexes of 'P' in mystring:");
+    printOccurredIndexes(mystring,'P');
+    printf("Highest frequency char in mystring:");
+    highestFrequencyChar(mystring);
+    printf("All char occurrences in mystring\n:");
+    printCharOccurrences(mystring);
+    printf("Mystring:%s\n", mystring);
+    removeChar(mystring, 'L');
+    printf("Mystring after removing 'L':%s\n", mystring);
+    char mystring7[] = "botoksowotksr";
+    printf("mystring7:");
+    printf("%s\n", mystring7);
+    removeDuplicateLetters(mystring7);
+    printf("mystring7 after remove duplicates:%s\n", mystring7);
+    printf("mystring3 after reverse:%s\n", mystring3);
+    printf("UPPER in mystring:");
+    findWord(mystring, "UPPER");
+    printf("Last UP in mystring:");
+    findLastWord(mystring, "UP");
+    printf("Find all 'my' in 'My home is my castle and my kingdom and my treasure':\n");
+    findAllWords("My home is my castle and my kingdom and my treasure", "my");
+    printf("Count all 'mia' in 'Mamma mia, oh mamma mia, mia mamma':");
+    countOccurrences("Mamma mia, oh mamma mia, mia mamma", "mia");
+    char mystring5[] = "my my home is my my castle my";
+    printf("mystring5:%s\n", mystring5);
+    removeFirstOccurrence(mystring5, "my");
+    printf("Mystring5 after removing first occurrence of 'my':%s\n", mystring5);
+    removeLastOccurrence(mystring5, "my");
+    printf("Mystring5 after removing last occurrence of 'my':%s\n", mystring5);
+    removeOccurrences(mystring5, "my");
+    printf("Mystring5 after removing all occurrences of 'my':%s\n", mystring5);
+    char mystring6[] = "    Love my life";
+    printf("mystring6:%s\n", mystring6);
+    removeLeadingSpaces(mystring6);
+    printf("Mystring after removing leading spaces:%s\n", mystring6);
+    char mystring8[] = "Too   much  spaces     int  the     text";
+    printf("mystring8:%s\n", mystring8);
+    removeExtraSpaces(mystring8);
+    printf("mystring8 after removing extra spaces:%s\n", mystring8);
+    removeLastOccurrence(mystring5, "bra");
+    return 0;
+}
